@@ -1,7 +1,7 @@
 var config = {
      environment: 'development'
     ,port: 8181
-    ,host: '127.0.0.1'
+    ,host: '0.0.0.0'
     // Size of the threadpool which can be used to run user code and get notified in the loop thread
     // Its default size is 4, but it can be changed at startup time (the absolute maximum is 128).
     // See http://docs.libuv.org/en/latest/threadpool.html
@@ -11,7 +11,7 @@ var config = {
     ,gc_interval: 10000
     // Regular expression pattern to extract username
     // from hostname. Must have a single grabbing block.
-    ,user_from_host: '^(.*)\\.localhost'
+    ,user_from_host: '^(.*)\\'
 
     // Base URLs for the APIs
     //
@@ -70,8 +70,8 @@ var config = {
     //  2. {{=it.user}}: will use the username as extraced from `user_from_host` or `routes`.
     //  3. {{=it.port}}: will use the `port` from this very same configuration file.
     ,resources_url_templates: {
-        http: 'http://{{=it.user}}.localhost.lan:{{=it.port}}/api/v1/map',
-        https: 'http://localhost.lan:{{=it.port}}/user/{{=it.user}}/api/v1/map'
+        http: 'http://{{=it.user}}.cartodb.localhost:{{=it.port}}/api/v1/map',
+        https: 'http://cartodb.localhost:{{=it.port}}/user/{{=it.user}}/api/v1/map'
     }
 
     // Maximum number of connections for one process
